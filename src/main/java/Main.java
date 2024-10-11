@@ -1,10 +1,17 @@
 public class Main {
     public static void main(String[] args) {
-        Vector vector = new SparseVector(10);
+        Vector vector = new SparseVector(5);
+        for (int i = 0; i < 5; i++) {
+            vector.setValue(i, i);
+        }
+        vector.setValue(4, 12);
         System.out.println(vector);
 
-        Matrix ordinaryMatrix = new OrdinaryMatrix(5, 5);
-        Matrix sparseMatrix = new SparseMatrix(5, 5);
+        int rowCount = 5;
+        int colCount = 5;
+
+        Matrix ordinaryMatrix = new OrdinaryMatrix(rowCount, colCount);
+        Matrix sparseMatrix = new SparseMatrix(rowCount, colCount);
 
         MatrixInitializer.fillMatrix(ordinaryMatrix, 10, 15);
         MatrixInitializer.fillMatrix(sparseMatrix, 10, 15);
@@ -19,12 +26,12 @@ public class Main {
         System.out.println("Сумма: " + ordinaryStats.getSum());
         System.out.println("Среднее значение: " + ordinaryStats.getAverage());
         System.out.println("Максимальное значение: " + ordinaryStats.getMax());
-        System.out.println("Количество ненулевых элементов: " + ordinaryStats.getNotZeroCount());
-
+        System.out.println("Количество ненулевых элементов: " + ordinaryStats.getNonZeroCount());
+        System.out.println();
         System.out.println("Разреженная матрица:");
         System.out.println("Сумма: " + sparseStats.getSum());
         System.out.println("Среднее значение: " + sparseStats.getAverage());
         System.out.println("Максимальное значение: " + sparseStats.getMax());
-        System.out.println("Количество ненулевых элементов: " + sparseStats.getNotZeroCount());
+        System.out.println("Количество ненулевых элементов: " + sparseStats.getNonZeroCount());
     }
 }

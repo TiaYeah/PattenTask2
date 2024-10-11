@@ -1,13 +1,12 @@
 import java.util.HashMap;
 
-public class SparseVector implements Vector{
+public class SparseVector implements Vector {
+    private HashMap<Integer, Integer> data;
     private int size;
-
-    private HashMap<Integer, Integer> elements;
 
     public SparseVector(int size) {
         this.size = size;
-        elements = new HashMap<>();
+        data = new HashMap<>();
     }
 
     @Override
@@ -17,23 +16,22 @@ public class SparseVector implements Vector{
 
     @Override
     public int getValue(int index) {
-        return elements.getOrDefault(index, 0);
+        return data.getOrDefault(index, 0);
     }
 
     @Override
     public void setValue(int index, int value) {
-        if (value != 0) {
-            elements.put(index, value);
+        if ( data.size() == size && !data.containsKey(index)) {
+            throw new IndexOutOfBoundsException("Индекс выходит за пределы вектора");
         } else {
-            elements.remove(index);
+            data.put(index, value);
         }
     }
 
     @Override
     public String toString() {
         return "SparseVector{" +
-                "size=" + size +
-                ", elements=" + elements +
+                "data=" + data +
                 '}';
     }
 }

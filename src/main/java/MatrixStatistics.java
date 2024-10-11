@@ -2,7 +2,7 @@ class MatrixStatistics {
     private int sum;
     private double average;
     private int max;
-    private int notZeroCount;
+    private int nonZeroCount;
 
     public MatrixStatistics(Matrix matrix) {
         calculateStatistics(matrix);
@@ -13,7 +13,7 @@ class MatrixStatistics {
         int colCount = matrix.getCols();
         sum = 0;
         max = Integer.MIN_VALUE;
-        notZeroCount = 0;
+        nonZeroCount = 0;
 
         for (int i = 0; i < rowCount; i++) {
             for (int j = 0; j < colCount; j++) {
@@ -25,7 +25,7 @@ class MatrixStatistics {
                 }
 
                 if (element != 0) {
-                    notZeroCount++;
+                    nonZeroCount++;
                 }
             }
         }
@@ -45,8 +45,8 @@ class MatrixStatistics {
         return max;
     }
 
-    public int getNotZeroCount() {
-        return notZeroCount;
+    public int getNonZeroCount() {
+        return nonZeroCount;
     }
 
     //    public int getSum() {
@@ -73,7 +73,7 @@ class MatrixStatistics {
 //        return max;
 //    }
 //
-//    public int getNotZeroCount() {
+//    public int getnonZeroCount() {
 //        int count = 0;
 //        for (int i = 0; i < matrix.getRows(); i++) {
 //            for (int j = 0; j < matrix.getCols(); j++) {

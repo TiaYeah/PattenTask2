@@ -1,15 +1,17 @@
 import java.util.Arrays;
 
 public class OrdinaryVector implements Vector {
-    private final int[] data;
+    private int[] data;
+    private int size;
 
     public OrdinaryVector(int size) {
         data = new int[size];
+        this.size = size;
     }
 
     @Override
     public int getSize() {
-        return data.length;
+        return size;
     }
 
     @Override
